@@ -37,120 +37,8 @@ public class DortIslem extends VerticalLayout {
 
                 button.getAdres().setSatir(i);
                 button.getAdres().setSutun(j);
+                createButton(button);
 
-                /**
-                 * KÖŞELER
-                 */
-
-                if (button.getAdres().getSatir() == 0 && button.getAdres().getSutun() == 0) {
-                    button.setIcon(FontAwesome.CIRCLE_O_NOTCH);
-                    button.setEnabled(false);
-
-                } else if (button.getAdres().getSatir() == 5 && button.getAdres().getSutun() == 0) {
-                    button.setIcon(FontAwesome.CIRCLE_O_NOTCH);
-                    button.setEnabled(false);
-                } else if (button.getAdres().getSatir() == 5 && button.getAdres().getSutun() == 5) {
-                    button.setIcon(FontAwesome.CIRCLE_O_NOTCH);
-                    button.setEnabled(false);
-                } else if (button.getAdres().getSatir() == 0 && button.getAdres().getSutun() == 5) {
-                    button.setIcon(FontAwesome.CIRCLE_O_NOTCH);
-                    button.setEnabled(false);
-
-                    /**
-                     * OPERATÖRLER
-                     */
-
-                } else if (button.getAdres().getSatir() == 1 && button.getAdres().getSutun() == 0) {
-                    Character arti = '+';
-                    button.setData(arti);
-                    button.setCaption(button.getData().toString());
-                    button.addStyleName(ValoTheme.BUTTON_DANGER);
-                } else if (button.getAdres().getSatir() == 2 && button.getAdres().getSutun() == 0) {
-                    Character eksi = '-';
-                    button.setData(eksi);
-                    button.setCaption(button.getData().toString());
-                    button.addStyleName(ValoTheme.BUTTON_DANGER);
-                } else if (button.getAdres().getSatir() == 3 && button.getAdres().getSutun() == 0) {
-                    Character carp = 'x';
-                    button.setData(carp);
-                    button.setCaption(button.getData().toString());
-                    button.addStyleName(ValoTheme.BUTTON_DANGER);
-                } else if (button.getAdres().getSatir() == 4 && button.getAdres().getSutun() == 0) {
-                    Character bol = '/';
-                    button.setData(bol);
-                    button.setCaption(button.getData().toString());
-                    button.addStyleName(ValoTheme.BUTTON_DANGER);
-                } else if (button.getAdres().getSatir() == 0 && button.getAdres().getSutun() == 1) {
-                    Character arti = '+';
-                    button.setData(arti);
-                    button.setCaption(button.getData().toString());
-                    button.addStyleName(ValoTheme.BUTTON_DANGER);
-                } else if (button.getAdres().getSatir() == 0 && button.getAdres().getSutun() == 2) {
-                    Character eksi = '-';
-                    button.setData(eksi);
-                    button.setCaption(button.getData().toString());
-                    button.addStyleName(ValoTheme.BUTTON_DANGER);
-                } else if (button.getAdres().getSatir() == 0 && button.getAdres().getSutun() == 3) {
-                    Character carp = 'x';
-                    button.setData(carp);
-                    button.setCaption(button.getData().toString());
-                    button.addStyleName(ValoTheme.BUTTON_DANGER);
-                } else if (button.getAdres().getSatir() == 0 && button.getAdres().getSutun() == 4) {
-                    Character bol = '/';
-                    button.setData(bol);
-                    button.setCaption(button.getData().toString());
-                    button.addStyleName(ValoTheme.BUTTON_DANGER);
-                }
-
-                /**
-                 * ALT KENARLAR
-                 */
-                else if (button.getAdres().getSatir() == 5 && button.getAdres().getSutun() == 1) {
-                    String sonuc = "?";
-                    button.setCaption(sonuc);
-                    button.setEnabled(false);
-                } else if (button.getAdres().getSatir() == 5 && button.getAdres().getSutun() == 2) {
-                    String sonuc = "?";
-                    button.setCaption(sonuc);
-                    button.setEnabled(false);
-                } else if (button.getAdres().getSatir() == 5 && button.getAdres().getSutun() == 3) {
-                    String sonuc = "?";
-                    button.setCaption(sonuc);
-                    button.setEnabled(false);
-                } else if (button.getAdres().getSatir() == 5 && button.getAdres().getSutun() == 4) {
-                    String sonuc = "?";
-                    button.setCaption(sonuc);
-                    button.setEnabled(false);
-                }
-                /**
-                 * ÜST KENARLAR
-                 */
-                else if (button.getAdres().getSatir() == 1 && button.getAdres().getSutun() == 5) {
-                    String sonuc = "?";
-                    button.setCaption(sonuc);
-                    button.setEnabled(false);
-                } else if (button.getAdres().getSatir() == 2 && button.getAdres().getSutun() == 5) {
-                    String sonuc = "?";
-                    button.setCaption(sonuc);
-                    button.setEnabled(false);
-                } else if (button.getAdres().getSatir() == 3 && button.getAdres().getSutun() == 5) {
-                    String sonuc = "?";
-                    button.setCaption(sonuc);
-                    button.setEnabled(false);
-                } else if (button.getAdres().getSatir() == 4 && button.getAdres().getSutun() == 5) {
-                    String sonuc = "?";
-                    button.setCaption(sonuc);
-                    button.setEnabled(false);
-                }
-
-                /**
-                 * İÇ BUTONLAR
-                 */
-
-                else {
-                    setRandomSayi(button);
-                    button.setCaption(button.getData().toString());
-                }
 
                 btnList.add(button);
 
@@ -160,6 +48,122 @@ public class DortIslem extends VerticalLayout {
 
             }
             addComponent(horizontalLayout);
+        }
+    }
+
+    private void createButton(MyButton button) {
+        /**
+         * KÖŞELER
+         */
+
+        if (button.getAdres().getSatir() == 0 && button.getAdres().getSutun() == 0) {
+            button.setIcon(FontAwesome.CIRCLE_O_NOTCH);
+            button.setEnabled(false);
+
+        } else if (button.getAdres().getSatir() == 5 && button.getAdres().getSutun() == 0) {
+            button.setIcon(FontAwesome.CIRCLE_O_NOTCH);
+            button.setEnabled(false);
+        } else if (button.getAdres().getSatir() == 5 && button.getAdres().getSutun() == 5) {
+            button.setIcon(FontAwesome.CIRCLE_O_NOTCH);
+            button.setEnabled(false);
+        } else if (button.getAdres().getSatir() == 0 && button.getAdres().getSutun() == 5) {
+            button.setIcon(FontAwesome.CIRCLE_O_NOTCH);
+            button.setEnabled(false);
+
+            /**
+             * OPERATÖRLER
+             */
+
+        } else if (button.getAdres().getSatir() == 1 && button.getAdres().getSutun() == 0) {
+            Character arti = '+';
+            button.setData(arti);
+            button.setCaption(button.getData().toString());
+            button.addStyleName(ValoTheme.BUTTON_DANGER);
+        } else if (button.getAdres().getSatir() == 2 && button.getAdres().getSutun() == 0) {
+            Character eksi = '-';
+            button.setData(eksi);
+            button.setCaption(button.getData().toString());
+            button.addStyleName(ValoTheme.BUTTON_DANGER);
+        } else if (button.getAdres().getSatir() == 3 && button.getAdres().getSutun() == 0) {
+            Character carp = 'x';
+            button.setData(carp);
+            button.setCaption(button.getData().toString());
+            button.addStyleName(ValoTheme.BUTTON_DANGER);
+        } else if (button.getAdres().getSatir() == 4 && button.getAdres().getSutun() == 0) {
+            Character bol = '/';
+            button.setData(bol);
+            button.setCaption(button.getData().toString());
+            button.addStyleName(ValoTheme.BUTTON_DANGER);
+        } else if (button.getAdres().getSatir() == 0 && button.getAdres().getSutun() == 1) {
+            Character arti = '+';
+            button.setData(arti);
+            button.setCaption(button.getData().toString());
+            button.addStyleName(ValoTheme.BUTTON_DANGER);
+        } else if (button.getAdres().getSatir() == 0 && button.getAdres().getSutun() == 2) {
+            Character eksi = '-';
+            button.setData(eksi);
+            button.setCaption(button.getData().toString());
+            button.addStyleName(ValoTheme.BUTTON_DANGER);
+        } else if (button.getAdres().getSatir() == 0 && button.getAdres().getSutun() == 3) {
+            Character carp = 'x';
+            button.setData(carp);
+            button.setCaption(button.getData().toString());
+            button.addStyleName(ValoTheme.BUTTON_DANGER);
+        } else if (button.getAdres().getSatir() == 0 && button.getAdres().getSutun() == 4) {
+            Character bol = '/';
+            button.setData(bol);
+            button.setCaption(button.getData().toString());
+            button.addStyleName(ValoTheme.BUTTON_DANGER);
+        }
+
+        /**
+         * ALT KENARLAR
+         */
+        else if (button.getAdres().getSatir() == 5 && button.getAdres().getSutun() == 1) {
+            String sonuc = "?";
+            button.setCaption(sonuc);
+            button.setEnabled(false);
+        } else if (button.getAdres().getSatir() == 5 && button.getAdres().getSutun() == 2) {
+            String sonuc = "?";
+            button.setCaption(sonuc);
+            button.setEnabled(false);
+        } else if (button.getAdres().getSatir() == 5 && button.getAdres().getSutun() == 3) {
+            String sonuc = "?";
+            button.setCaption(sonuc);
+            button.setEnabled(false);
+        } else if (button.getAdres().getSatir() == 5 && button.getAdres().getSutun() == 4) {
+            String sonuc = "?";
+            button.setCaption(sonuc);
+            button.setEnabled(false);
+        }
+        /**
+         * ÜST KENARLAR
+         */
+        else if (button.getAdres().getSatir() == 1 && button.getAdres().getSutun() == 5) {
+            String sonuc = "?";
+            button.setCaption(sonuc);
+            button.setEnabled(false);
+        } else if (button.getAdres().getSatir() == 2 && button.getAdres().getSutun() == 5) {
+            String sonuc = "?";
+            button.setCaption(sonuc);
+            button.setEnabled(false);
+        } else if (button.getAdres().getSatir() == 3 && button.getAdres().getSutun() == 5) {
+            String sonuc = "?";
+            button.setCaption(sonuc);
+            button.setEnabled(false);
+        } else if (button.getAdres().getSatir() == 4 && button.getAdres().getSutun() == 5) {
+            String sonuc = "?";
+            button.setCaption(sonuc);
+            button.setEnabled(false);
+        }
+
+        /**
+         * İÇ BUTONLAR
+         */
+
+        else {
+            setRandomSayi(button);
+            button.setCaption(button.getData().toString());
         }
     }
 
