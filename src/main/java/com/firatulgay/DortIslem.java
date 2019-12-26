@@ -17,13 +17,14 @@ public class DortIslem extends VerticalLayout {
 
     List<MyButton> btnList = new ArrayList<>();
 
-    public DortIslem() {
+    Islemler islemler = new Islemler();
 
+
+    public DortIslem() {
 
         setSpacing(true);
         setMargin(true);
         buildButtonTable();
-
     }
 
     private void buildButtonTable() {
@@ -202,7 +203,8 @@ public class DortIslem extends VerticalLayout {
                                 satir == 1 && sutun == 3 ||
                                 satir == 1 && sutun == 4) {
 
-                            toplam = getToplam(toplam, myButton);
+//                            toplam = getToplam(toplam, myButton);
+                            toplam = islemler.getToplam(toplam, myButton);
                         }
                     }
                     /**
@@ -217,7 +219,7 @@ public class DortIslem extends VerticalLayout {
                                 satir == 3 && sutun == 1 ||
                                 satir == 4 && sutun == 1) {
 
-                            toplam = getToplam(toplam, myButton);
+                            toplam = islemler.getToplam(toplam, myButton);
                         }
                         /**
                          * YATAY ÇIKARMA
@@ -231,7 +233,7 @@ public class DortIslem extends VerticalLayout {
                                 satir == 2 && sutun == 3 ||
                                 satir == 2 && sutun == 4) {
 
-                            toplam = getCikarma(toplam, myButton);
+                            cikarma = islemler.getCikarma(toplam, myButton);
                         }
                     }
                     /**
@@ -245,7 +247,7 @@ public class DortIslem extends VerticalLayout {
                                 satir == 3 && sutun == 2 ||
                                 satir == 4 && sutun == 2) {
 
-                            toplam = getCikarma(toplam, myButton);
+                            cikarma = islemler.getCikarma(toplam, myButton);
                         }
                     }
                     /**
@@ -260,7 +262,7 @@ public class DortIslem extends VerticalLayout {
                                 satir == 3 && sutun == 3 ||
                                 satir == 4 && sutun == 3) {
 
-                            carpma = getCarpma(carpma, myButton);
+                            carpma = islemler.getCarpma(carpma, myButton);
                         }
                     }
                     /**
@@ -275,7 +277,7 @@ public class DortIslem extends VerticalLayout {
                                 satir == 3 && sutun == 3 ||
                                 satir == 3 && sutun == 4) {
 
-                            carpma = getCarpma(carpma, myButton);
+                            carpma = islemler.getCarpma(carpma, myButton);
                         }
                     }
                     /**
@@ -290,7 +292,7 @@ public class DortIslem extends VerticalLayout {
                                 satir == 3 && sutun == 4 ||
                                 satir == 4 && sutun == 4) {
 
-                            toplam = getBolme(toplam, myButton);
+                            bolme = islemler.getBolme(toplam, myButton);
                         }
                     }
                     /**
@@ -305,52 +307,13 @@ public class DortIslem extends VerticalLayout {
                                 satir == 4 && sutun == 3 ||
                                 satir == 4 && sutun == 4) {
 
-                            toplam = getBolme(toplam, myButton);
+                            bolme= islemler.getBolme(toplam, myButton);
                         }
                     }
                 }
             }
         });
     }
-
-    private int getBolme(int toplam, MyButton myButton) {
-        int bolme;
-        Integer data = (Integer) myButton.getData();
-        toplam = toplam + data;
-        bolme = toplam / 4;
-        System.out.println(bolme);
-        Notification.show(String.valueOf(bolme));
-        return toplam;
-    }
-
-    private int getCarpma(int carpma, MyButton myButton) {
-        Integer data = (Integer) myButton.getData();
-        carpma = carpma * data;
-        System.out.println(carpma);
-        Notification.show(String.valueOf(carpma));
-        return carpma;
-    }
-
-    private int getCikarma(int toplam, MyButton myButton) {
-        int cikarma;
-        Integer data = (Integer) myButton.getData();
-        toplam = toplam + data;
-
-        cikarma = -toplam;
-        System.out.println(cikarma);
-        Notification.show(String.valueOf(cikarma));
-        return toplam;
-    }
-
-    private int getToplam(int toplam, MyButton myButton) {
-        Integer data = (Integer) myButton.getData();
-        toplam = toplam + data;
-
-        System.out.println(toplam);
-        Notification.show(String.valueOf(toplam));
-        return toplam;
-    }
-
     public void setRandomSayi(MyButton button) {
         Random random = new Random();
         int rnd = random.nextInt(19) - 9;
