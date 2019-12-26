@@ -2,6 +2,8 @@ package com.firatulgay;
 
 import com.vaadin.ui.Notification;
 
+import java.util.Random;
+
 /**
  * Created by FiratUlgay on 26.12.2019.
  */
@@ -43,5 +45,11 @@ public class Islemler {
         System.out.println(toplam);
         Notification.show(String.valueOf(toplam));
         return toplam;
+    }
+
+    public void setRandomSayi(MyButton button) {
+        Random random = new Random();
+        int rnd = random.nextInt(19) - 9;
+        button.setData(rnd);
     }
 }

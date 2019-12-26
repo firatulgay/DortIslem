@@ -40,7 +40,6 @@ public class DortIslem extends VerticalLayout {
                 button.getAdres().setSutun(j);
                 createButton(button);
 
-
                 btnList.add(button);
 
                 btnListener(i, j, button);
@@ -163,7 +162,7 @@ public class DortIslem extends VerticalLayout {
          */
 
         else {
-            setRandomSayi(button);
+            islemler.setRandomSayi(button);
             button.setCaption(button.getData().toString());
         }
     }
@@ -314,10 +313,6 @@ public class DortIslem extends VerticalLayout {
             }
         });
     }
-    public void setRandomSayi(MyButton button) {
-        Random random = new Random();
-        int rnd = random.nextInt(19) - 9;
-        button.setData(rnd);
-    }
+
 
 }
